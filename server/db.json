@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "name": "Ali",
+      "username": "alicebrown",
+      "company": {
+        "name": "456 Corp"
+      },
+      "email": "alice@example.com",
+      "phone": "111-222-3333",
+      "id": 4
+    },
+    {
+      "name": "michael",
+      "username": "michaelclark",
+      "company": {
+        "name": "789 Inc"
+      },
+      "email": "michael@example.com",
+      "phone": "999-888-7777",
+      "id": 5
+    },
+    {
+      "name": "ham",
+      "username": "hamza2922",
+      "company": {
+        "name": "hawk"
+      },
+      "email": "abc@gmail.com",
+      "phone": "123456789",
+      "id": "04ada86d-59c2-4c28-a261-6683f27609d9"
+    },
+    {
+      "id": "26d6f0bd-2b9e-4695-b4a5-66744dd9b4da",
+      "name": "usman",
+      "username": "usman22",
+      "company": {
+        "name": "VS"
+      },
+      "email": "abc@gmail.com",
+      "phone": "123456789"
+    }
+  ]
+}
