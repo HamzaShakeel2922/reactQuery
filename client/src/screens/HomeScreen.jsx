@@ -4,18 +4,34 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
+  Button,
 } from 'react-native';
 import {AddUser, UserCard, AddButton} from '../components';
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useGetUsersQuery} from '../api/usersApi';
 import {setUser} from '../reduxtoolkit/userSlice';
-const HomeScreen = () => {
+import {getLoginMethod, setLoginMethod} from '../reduxtoolkit/authSlice';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+
+const HomeScreen = ({route, navigation}) => {
   const [isModalVisible, setShowModal] = useState(false);
   const {data, isLoading, isError} = useGetUsersQuery();
+  const {email} = route.params;
   const {userList} = useSelector(state => state.users);
   const dispatch = useDispatch();
-
+  const {loginMethod} = useSelector(state => state.auth);
+  const handleSignOut = () => {
+    let signOutMethod = null;
+    if (loginMethod === 'google') signOutMethod = GoogleSignin.signOut;
+    if (loginMethod === 'firebase') {
+      auth()
+        .signOut()
+        .then(res => alert('Sign out successful'))
+        .catch(err => alert('Error signing out'));
+    }
+  };
   useEffect(() => {
     dispatch(setUser(data));
   }, [data]);
@@ -36,6 +52,10 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <AddButton setShowModal={setShowModal} />
+      <View style={styles.signOutContainer}>
+        <Button title="Sign out" onPress={handleSignOut} />
+        <Text style={styles.emailText}>Your Email : {email}</Text>
+      </View>
       <FlatList
         data={userList}
         style={styles.listStyles}
@@ -53,6 +73,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     gap: 20,
     flex: 1,
+    backgroundColor: 'black',
   },
   listStyles: {
     paddingHorizontal: 10,
@@ -70,6 +91,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  signOutContainer: {
+    alignSelf: 'center',
+    gap: 10,
+  },
+  emailText: {
+    fontSize: 20,
   },
 });
 

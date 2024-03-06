@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "283938031281",
+    "project_id": "nativeauth-8c325",
+    "storage_bucket": "nativeauth-8c325.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283938031281:android:cb64ea1035b7f5a1cd0490",
+        "android_client_info": {
+          "package_name": "com.rtkqueryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283938031281-0c5tba4463sp06rgpgvrqljs03g7cr1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rtkqueryapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "283938031281-6vgl4b3uommcvk8rnggfvlb9hg8qpu6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoEOTl-9FEsTPiobG55Uh4jsCO5KcKhCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283938031281-6vgl4b3uommcvk8rnggfvlb9hg8qpu6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

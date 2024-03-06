@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "name": "Ali",
-      "username": "alicebrown",
-      "company": {
-        "name": "456 Corp"
-      },
-      "email": "alice@example.com",
-      "phone": "111-222-3333",
-      "id": 4
-    },
-    {
       "name": "michael",
       "username": "michaelclark",
       "company": {
@@ -38,6 +28,16 @@
         "name": "VS"
       },
       "email": "abc@gmail.com",
+      "phone": "123456789"
+    },
+    {
+      "id": "5629bfd5-f429-4a64-8310-64cbc12dd0dc",
+      "name": "Hamza ali",
+      "username": "Hawk2922",
+      "company": {
+        "name": "HAWK"
+      },
+      "email": "Abc321@gmail.com",
       "phone": "123456789"
     }
   ]

@@ -1,12 +1,16 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {HomeScreen} from './src/screens';
 import {Provider} from 'react-redux';
 import myStore from './src/reduxtoolkit/Store';
+import {NavigationContainer} from '@react-navigation/native';
+import StackNavigation from './src/navigation/StackNavigation';
 
 const App = () => {
   return (
     <Provider store={myStore}>
-      <HomeScreen />
+      <NavigationContainer>
+        <StackNavigation />
+      </NavigationContainer>
     </Provider>
   );
 };

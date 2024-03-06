@@ -1,4 +1,4 @@
-package com.rtkquery;
+package com.rtkqueryapp;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

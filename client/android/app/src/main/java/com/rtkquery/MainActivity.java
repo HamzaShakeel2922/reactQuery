@@ -1,4 +1,4 @@
-package com.rtkquery;
+package com.rtkqueryapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
