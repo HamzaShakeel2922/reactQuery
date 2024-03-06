@@ -11,7 +11,6 @@ import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useGetUsersQuery} from '../api/usersApi';
 import {setUser} from '../reduxtoolkit/userSlice';
-import {getLoginMethod, setLoginMethod} from '../reduxtoolkit/authSlice';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 
@@ -22,16 +21,26 @@ const HomeScreen = ({route, navigation}) => {
   const {userList} = useSelector(state => state.users);
   const dispatch = useDispatch();
   const {loginMethod} = useSelector(state => state.auth);
+
   const handleSignOut = () => {
-    let signOutMethod = null;
-    if (loginMethod === 'google') signOutMethod = GoogleSignin.signOut;
-    if (loginMethod === 'firebase') {
-      auth()
-        .signOut()
-        .then(res => alert('Sign out successful'))
-        .catch(err => alert('Error signing out'));
+    const signOutPromises = [];
+    signOutPromises.push(auth().signOut());
+
+    if (loginMethod === 'google') {
+      signOutPromises.push(GoogleSignin.signOut());
     }
+
+    Promise.all(signOutPromises)
+      .then(() => {
+        navigation.replace('Login');
+        alert('Sign out successful');
+      })
+      .catch(error => {
+        console.error('Error signing out:', error);
+        alert('Error signing out');
+      });
   };
+
   useEffect(() => {
     dispatch(setUser(data));
   }, [data]);
